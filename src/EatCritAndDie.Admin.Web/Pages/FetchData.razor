@@ -1,0 +1,44 @@
+﻿@page "/fetchdata"
+@using EatCritAndDie.Admin.Application.Services.User
+@using EatCritAndDie.Admin.Domain.Models
+@inject IUserService UserService;
+<PageTitle>Weather forecast</PageTitle>
+
+
+<h1>Weather forecast</h1>
+
+<p>This component demonstrates fetching data from a service.</p>
+
+<AuthorizeView>
+    <Authorized>
+        @if (user == null)
+        {
+            <span>Loading...</span>
+        }
+        else
+        {
+            <span>UserId: @user.UserId</span>
+            <span>Username: @user.Username</span>
+            <span>Email: @user.Email</span>
+            <span>Guild Nickname: @user.GuildNickname</span>
+            <span>Roles:</span>
+            <ul>
+                @foreach (var role in user.Roles)
+                {
+                    <li>@role.Key: @role.Value</li>
+                }
+            </ul>
+        }
+    </Authorized>
+</AuthorizeView>
+
+@code {
+
+    private User? user;
+
+    protected override async Task OnInitializedAsync()
+    {
+        user = await UserService.GetUserAsync();
+    }
+
+}

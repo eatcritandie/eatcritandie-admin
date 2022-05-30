@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\EatCritAndDie.Admin.Data\EatCritAndDie.Admin.Data.csproj" />
+      <ProjectReference Include="..\EatCritAndDie.Admin.Domain\EatCritAndDie.Admin.Domain.csproj" />
+      <ProjectReference Include="..\EatCritAndDie.Admin.Infrastructure\EatCritAndDie.Admin.Infrastructure.csproj" />
+    </ItemGroup>
+
+</Project>
